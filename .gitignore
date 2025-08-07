@@ -1,0 +1,12 @@
+# IDE dependencies ignore
+.vscode/ 
+.idea/
+.settings/
+
+# OS junk ignore
+Thumbs.db
+desktop.ini
+
+# If I use API keys
+.env
+.env.local
