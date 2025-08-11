@@ -1,7 +1,8 @@
 # IDE dependencies ignore
-.vscode/ 
 .idea/
 .settings/
+**/.vscode/
+# it will catch all the instances of .vscode folder across the whole dir
 
 # OS junk ignore
 Thumbs.db
