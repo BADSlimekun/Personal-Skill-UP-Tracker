@@ -24,7 +24,8 @@ using namespace std;
 
 class Solution {
 public:
-    string validIPAddress(string queryIP) {
+    string validIPAddress(string queryIP) 
+    {
         int countIPV4 = 0, countIPV6 = 0;
         for (char c0: queryIP) {
             if (c0 == ':') countIPV6++;
@@ -85,5 +86,28 @@ public:
         }
 
         return "IPv6";
+    }
+};
+
+
+// Approach 2 using regex matching
+
+#include <regex>
+
+class Solution2 {
+public:
+    string validIPAddress(string queryIP) {
+        static const regex patternIPv4(
+            R"(^([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$)",
+            regex::ECMAScript | regex::optimize
+        );
+        static const regex patternIPv6(
+            R"(^([0-9a-fA-F]{1,4})\:([0-9a-fA-F]{1,4})\:([0-9a-fA-F]{1,4})\:([0-9a-fA-F]{1,4})\:([0-9a-fA-F]{1,4})\:([0-9a-fA-F]{1,4})\:([0-9a-fA-F]{1,4})\:([0-9a-fA-F]{1,4})$)",
+            regex::ECMAScript | regex::optimize
+        );
+
+        if (regex_match(queryIP, patternIPv4)) return "IPv4";
+        if (regex_match(queryIP, patternIPv6)) return "IPv6";
+        return "Neither";
     }
 };
