@@ -21,11 +21,11 @@ PITCH_W = 20
 P_GREEN = 0.65
 P_GREY  = 0.30
 
-CELL_PX = 8
+CELL_PX = 9
 NUMBER_EVERY = 1
 
-# RNG_SEED = random.randint(1,99)
-RNG_SEED = 40
+RNG_SEED = random.randint(1,99)
+# RNG_SEED = 40
 
 rng = np.random.default_rng(RNG_SEED)
 

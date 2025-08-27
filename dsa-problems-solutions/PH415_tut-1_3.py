@@ -1,10 +1,9 @@
 import numpy as np
-from collections import deque
 import matplotlib.pyplot as plt
 import pandas as pd
 
 N = 100
-TRIALS_PER_P = 200
+TRIALS_PER_P = 100
 p_values = np.round(np.arange(0.40, 0.70 + 1e-9, 0.02), 2)
 
 def has_top_bottom_wrap(medium: np.ndarray) -> bool:
@@ -36,7 +35,7 @@ def has_top_bottom_wrap(medium: np.ndarray) -> bool:
             q.append((nr, nc))
     return False
 
-BASE_SEED = 777
+BASE_SEED = 77
 ss = np.random.SeedSequence(BASE_SEED)
 rngs = [np.random.default_rng(s) for s in ss.spawn(len(p_values))]
 
